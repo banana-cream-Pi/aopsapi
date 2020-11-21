@@ -4,7 +4,7 @@ let AoPS ={
     thread:{
         title: async function thread(thread){
             const browser = await puppeteer.launch({
-                headless: false,
+                headless: true,
                 defaultViewport: null
             }).catch();
             const page = await browser.newPage().catch();
@@ -25,7 +25,7 @@ let AoPS ={
         },
         author: async function thread(thread){
             const browser = await puppeteer.launch({
-                headless: false,
+                headless: true,
                 defaultViewport: null
             }).catch();
             const page = await browser.newPage().catch();
@@ -346,4 +346,4 @@ async function output(){
 }
 output();
 
-//thread.post('810735h1770184','lol nerds Any% Glitchless code', config.user,config.pass);
+
