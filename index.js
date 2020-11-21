@@ -63,34 +63,7 @@ let AoPS ={
             browser.close().catch();
             return(value);
         },
-        post: async function post(thread, content, user, pass){
-           const browser = await puppeteer.launch({
-               headless: false,
-               defaultViewport: null
-           }).catch();
         
-           const page = await browser.newPage().catch();
-        
-           const url = `https://artofproblemsolving.com/community/c${thread}`;
-        
-           await page.goto(url).catch();
-       
-           await page.waitForSelector('#header-login').catch();
-        
-           await page.click('#header-login').catch();
-        
-           await page.type('#login-username', user).catch();
-           await page.type('#login-password', pass).catch();
-           await page.click('#login-stay-logged-in').catch();
-           await page.click('#login-button').catch();
-           await page.reload().catch();
-           await page.waitForSelector('#cmty-topic-view-right > div > div.cmty-topic-posts-top.cmty-topic-full-top > div.cmty-topic-third-row > div.cmty-topic-third-row-right > span.cmty-topic-reply.cmty-icon-w-text.clickable').catch();
-           await page.click('#cmty-topic-view-right > div > div.cmty-topic-posts-top.cmty-topic-full-top > div.cmty-topic-third-row > div.cmty-topic-third-row-right > span.cmty-topic-reply.cmty-icon-w-text.clickable').catch();
-           await page.type('#cmty-topic-view-right > div > div.cmty-topic-full-bottom > div > div.cmty-posting-environ > div.cmty-posting-box-container > textarea', content).catch();
-           await page.click('#cmty-topic-view-right > div > div.cmty-topic-full-bottom > div > div.cmty-posting-environ > div:nth-child(2) > div.cmty-posting-environ-buttons > input.cmty-submit-button.btn.btn-primary').catch();
-           console.log(`${user} just posted "${content}" in https://artofproblemsolving.com/community/c${thread}`);
-           browser.close().catch();
-       }
    },
    user:{
         joined:async function thread(user){
