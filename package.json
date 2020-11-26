@@ -1,0 +1,11 @@
+{
+  "name": "aopsapi",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "author": "Banana_cream_PI",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^5.5.0"
+  }
+}
