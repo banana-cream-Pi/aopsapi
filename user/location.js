@@ -10,7 +10,7 @@ async function location(user) {
     const url = `https://artofproblemsolving.com/community/user/${user}`;
 
     await page.goto(url).catch();
-    await page.waitForSelector('#community-all > div > div:nth-child(2) > div.cmty-user-profile-main.cmty-index-card > div.cmty-user-profile-data > div.cmty-user-profile-main-info > div:nth-child(7) > div:nth-child(2)');
+    await page.waitForSelector('#community-all > div > div:nth-child(2) > div.cmty-user-profile-main.cmty-index-card > div.cmty-user-profile-data > div.cmty-user-profile-main-info > div:nth-child(7) > div:nth-child(2)').catch(err =>{if(err){console.log(`Either this user has not set this value or this user does not exsist`);return}});
     let element = await page.$('#community-all > div > div:nth-child(2) > div.cmty-user-profile-main.cmty-index-card > div.cmty-user-profile-data > div.cmty-user-profile-main-info > div:nth-child(7) > div:nth-child(2)');
     let value = await page.evaluate(el => el.textContent, element);
 

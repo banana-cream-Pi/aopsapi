@@ -15,7 +15,7 @@ async function avatar(user){
     
     
     const imgs = await page.$$eval('.cmty-user-profile-avatar img[src]', imgs => imgs.map(img => img.getAttribute('src'))).catch(err=>{if(err){console.log('No such user');return;}});
-    if (imgs === null){
+    if (img === null){
         return;
     }
     

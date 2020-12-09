@@ -10,7 +10,7 @@ async function joined(user){
     const url = `https://artofproblemsolving.com/community/user/${user}`;
     
     await page.goto(url).catch();
-    await page.waitForSelector('#community-all > div > div:nth-child(2) > div.cmty-user-profile-main.cmty-index-card > div.cmty-user-profile-data > div.cmty-user-profile-main-info > div:nth-child(1) > div:nth-child(2)');
+    await page.waitForSelector('#community-all > div > div:nth-child(2) > div.cmty-user-profile-main.cmty-index-card > div.cmty-user-profile-data > div.cmty-user-profile-main-info > div:nth-child(1) > div:nth-child(2)').catch(err =>{if(err){console.log(`This user probablly does not exsist`);return;}});
     let element = await page.$('#community-all > div > div:nth-child(2) > div.cmty-user-profile-main.cmty-index-card > div.cmty-user-profile-data > div.cmty-user-profile-main-info > div:nth-child(1) > div:nth-child(2)');
     let value = await page.evaluate(el => el.textContent, element);
     
