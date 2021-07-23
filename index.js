@@ -1,5 +1,5 @@
 //require puppeteer
-const puppeteer = require('puppeteer');
+//const puppeteer = require('puppeteer');
 
 const author = require('./thread/author');
 const postNum = require('./thread/postNum');
